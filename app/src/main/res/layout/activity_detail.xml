@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.devwujot.tumblrsearch.framework.viewModel.DetailActivityViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/layout_background"
+        tools:context=".presentation.activity.DetailActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/Toolbar"
+            android:elevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleTextColor="@android:color/white">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/materialCardView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/grid_3x"
+                    app:cardCornerRadius="@dimen/owner_avatar_card_corner_radius"
+                    app:cardElevation="@dimen/owner_avatar_card_elevation"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        loadImage="@{viewModel.post.tumblelog.avatarUrl}"
+                        android:layout_width="@dimen/owner_avatar_image_size"
+                        android:layout_height="@dimen/owner_avatar_image_size"
+                        android:scaleType="centerCrop" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/grid_3x"
+                    android:gravity="end"
+                    android:text="@{viewModel.post.tumblelog.name}"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_size_2x"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="xxx" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <View
+            android:id="@+id/top_bar_view"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="@dimen/top_bar_view_height"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/grid_3x"
+            app:cardCornerRadius="@dimen/post_owner_card_corner_radius"
+            app:cardElevation="@dimen/owner_avatar_card_elevation"
+            app:layout_constraintBottom_toBottomOf="@+id/postOwnerName"
+            app:layout_constraintStart_toStartOf="@+id/top_bar_view"
+            app:layout_constraintTop_toTopOf="@+id/postOwnerName">
+
+            <ImageView
+                loadImage="@{viewModel.post.ownerAvatar}"
+                android:layout_width="@dimen/post_owner_avatar_image_size"
+                android:layout_height="@dimen/post_owner_avatar_image_size"
+                android:scaleType="centerCrop" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/postOwnerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/grid_3x"
+            android:text="@{viewModel.post.ownerName}"
+            android:textColor="@color/colorMain"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/top_bar_view"
+            app:layout_constraintStart_toEndOf="@+id/cardImage"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            tools:text="@string/detail_post_owner_username_placeholder" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/grid_3x"
+            android:text="@{viewModel.post.ownerTitle}"
+            android:textColor="@color/colorMain"
+            app:layout_constraintBottom_toBottomOf="@+id/top_bar_view"
+            app:layout_constraintEnd_toEndOf="@+id/top_bar_view"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            tools:text="@string/detail_post_owner_title_placeholder" />
+
+        <ImageView
+            android:id="@+id/postImage"
+            loadImage="@{viewModel.post.photoUrl}"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="@dimen/post_image_height"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_bar_view" />
+
+        <View
+            android:id="@+id/footer"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="@dimen/zero_dp"
+            android:background="@color/colorMain"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/postImage" />
+
+        <TextView
+            android:id="@+id/postDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/grid_3x"
+            android:layout_marginTop="@dimen/grid_3x"
+            android:text="@{viewModel.post.date}"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/postImage"
+            tools:text="@string/detail_post_date_placeholder" />
+
+        <TextView
+            formatNumber="@{viewModel.post.noteCount}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/grid_3x"
+            android:layout_marginEnd="@dimen/grid_3x"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/postImage"
+            tools:text="@string/detail_post_note_count_placeholder" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/grid_3x"
+            android:text="@{viewModel.post.tumblelog.title}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_2x"
+            app:layout_constraintBottom_toBottomOf="@+id/footer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/postDate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

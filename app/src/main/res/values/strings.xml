@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Tumblr Search</string>
+
+    <!-- Search Activity -->
+    <string name="empty_string" />
+    <string name="search_activity_title">Tumblr Search</string>
+    <string name="menu_ic_search_title">Search</string>
+    <string name="search_empty_layout_message">Search Tumblr posts by given username.</string>
+
+    <!-- Splash Screen Activity -->
+    <string name="splash_welcome_message">Welcome to the</string>
+    <string name="splash_welcome_logo_name">Tumblr</string>
+    <string name="splash_welcome_logo_search">Search</string>
+
+    <!-- Detail Activity -->
+    <string name="detail_post_owner_username_placeholder">Username</string>
+    <string name="detail_post_owner_title_placeholder">Title</string>
+    <string name="detail_post_date_placeholder">Suday, 13 march 2020</string>
+    <string name="detail_post_note_count_placeholder">30,204 notes</string>
+
+</resources>
